@@ -1,0 +1,41 @@
+.contain {
+  position: relative;
+  padding: 4em;
+  color: blue;
+}
+
+h1 {
+  font-size: 300%;
+  text-align: center;
+}
+
+#greeting {
+  font-size: 170%;
+  text-align: center;
+  font-weight: bold;
+}
+
+p {
+  font-size: 120%;
+  text-align: center;
+}
+
+@media screen and (max-width: 599px) {
+  .contain {
+    padding: 1em;
+  }
+  
+  h1 {
+    font-size: 200%;
+    text-align: center;
+  }
+  
+  #greeting {
+    font-size: 125%;
+  }
+
+  p {
+    font-size: 100%;
+  }
+  
+}

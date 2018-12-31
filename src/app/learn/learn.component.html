@@ -1,0 +1,79 @@
+<mat-tab-group #group (selectedTabChange)="loadQuestions(group.selectedIndex)">
+  <mat-tab label="TEORIJA">
+    <ng-template matTabContent>
+      <h3 id="header-teory">Kategorija:</h3>
+      <div class="mat-fab-buttons" fxLayout fxLayoutAlign="center" fxLayoutGap="10px">
+        <button mat-fab color="warn"(click)="filterQuestions('A')">A</button>
+        <button mat-fab color="warn"(click)="filterQuestions('B')">B</button>
+        <button mat-fab color="warn"(click)="filterQuestions('C')">C</button>
+        <button mat-fab color="warn"(click)="filterQuestions('D')">D</button>
+      </div>
+
+      <div *ngIf="teory">
+        <button mat-raised-button color="accent" (click)="erraseYourAnswers()">{{checkboxVisibility?"Obriši svoje odgovore":"Prikaži checkboxove"}}</button>
+        <h1 class="title">Vježbanje pitanja - Teorija</h1>
+        <div class="question-container" fxLayout fxLayoutAlign= "center start" fxLayoutGap="20px" *ngFor="let pitanje of filteredTeory; let i = index">
+          <div fxFlex.gt-xs="70%" fxFlex.xs="100%">
+            <h3>{{i+1}}. {{pitanje.question}}</h3>
+            <ul>
+              <li *ngFor="let odgovor of pitanje.answers"><mat-icon  [style.color]="'green'" *ngIf="odgovor.correct&&pitanje.correctAnswersVisibility">check</mat-icon><mat-icon [style.color]="'red'" *ngIf="!odgovor.correct&&pitanje.correctAnswersVisibility">close</mat-icon><mat-checkbox class="question-checkbox" *ngIf="checkboxVisibility"></mat-checkbox> {{odgovor.answer}}</li>
+            </ul>
+            <div>
+              <p *ngIf= "pitanje.correctAnswersVisibility" [style.color]="'green'" >{{pitanje.explanation}}</p>
+            </div>
+            <button mat-raised-button color="primary" (click)="showAnswers(pitanje)">{{pitanje.correctAnswersVisibility?"Sakrij":"Prikaži"}} tačne odgovore</button>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+
+  <mat-tab label="ZNAKOVI">
+    <ng-template matTabContent>
+      <div *ngIf="signs">
+        <button mat-raised-button color="accent" (click)="erraseYourAnswers()">{{checkboxVisibility?"Obriši svoje odgovore":"Prikaži checkboxove"}}</button>
+        <h1 class="title">Vježbanje pitanja - Znakovi</h1>
+        <div class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of signs; let i = index">
+          <div fxFlex="50%">
+            <h3>{{i+1}}. {{pitanje.question}}</h3>
+            <ul>
+              <li *ngFor="let odgovor of pitanje.answers"><mat-icon  [style.color]="'green'" *ngIf="odgovor.correct&&pitanje.correctAnswersVisibility">check</mat-icon><mat-icon [style.color]="'red'" *ngIf="!odgovor.correct&&pitanje.correctAnswersVisibility">close</mat-icon><mat-checkbox class="question-checkbox" *ngIf="checkboxVisibility"></mat-checkbox> {{odgovor.answer}}</li>
+            </ul>
+            <div>
+              <p *ngIf= "pitanje.correctAnswersVisibility" [style.color]="'green'" >{{pitanje.explanation}}</p>
+            </div>
+            <button mat-raised-button color="primary" (click)="showAnswers(pitanje)">{{pitanje.correctAnswersVisibility?"Sakrij":"Prikaži"}} tačne odgovore</button>
+          </div>
+          <div>
+            <img class="sign-image" src="{{pitanje.image}}">
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+  <mat-tab label="RASKRSNICE">
+    <ng-template matTabContent>
+      <div *ngIf="intersections">
+        <button mat-raised-button color="accent" (click)="erraseYourAnswers()">{{checkboxVisibility?"Obriši svoje odgovore":"Prikaži checkboxove"}}</button>
+        <h1 class="title">Vježbanje pitanja - Raskrsnice</h1>
+        <div class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of intersections; let i = index">
+          <div fxFlex="50%">
+            <h3>{{i+1}}. {{pitanje.question}}</h3>
+            <ul>
+              <li *ngFor="let odgovor of pitanje.answers"><mat-icon  [style.color]="'green'" *ngIf="odgovor.correct&&pitanje.correctAnswersVisibility">check</mat-icon><mat-icon [style.color]="'red'" *ngIf="!odgovor.correct&&pitanje.correctAnswersVisibility">close</mat-icon><mat-checkbox class="question-checkbox" *ngIf="checkboxVisibility"></mat-checkbox> {{odgovor.answer}}</li>
+            </ul>
+            <div>
+              <p *ngIf= "pitanje.correctAnswersVisibility" [style.color]="'green'" >{{pitanje.explanation}}</p>
+            </div>
+            <button mat-raised-button color="primary" (click)="showAnswers(pitanje)">{{pitanje.correctAnswersVisibility?"Sakrij":"Prikaži"}} tačne odgovore</button>
+          </div>
+          <div>
+            <img class="intersection-image" src="{{pitanje.image}}">
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
+ 
+

@@ -1,0 +1,79 @@
+#header-teory {
+  text-align: center;
+}
+
+#intro-text {
+  font-size: 120%;
+  margin: 40px;
+  color: blue;
+}
+
+.mat-fab-buttons {
+  margin: 20px;
+}
+
+.button-warn {
+  font-size: 3vw;
+  padding: 1vw;
+  margin: 0.5vw;
+}
+
+.question-container {
+  margin-bottom: 50px;
+}
+
+#title {
+  text-align: center;
+}
+
+.title {
+  text-align: center;
+}
+
+.finish {
+  font-size: 200%;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-top: 40px;
+}
+
+
+@media screen and (min-width: 600px) and (max-width: 959px){
+  
+  .title {
+    font-size: 1em;
+  }
+
+  #intro-text {
+    font-size: 100%;
+  }
+
+  .question-container {
+    font-size: 0.9em;
+  }
+
+  .finish {
+    font-size: 150%;
+  }
+}
+
+@media screen and (max-width: 599px){
+   .title {
+     font-size: 1em;
+   }
+
+   #intro-text {
+    font-size: 100%;
+   }
+
+   .question-container {
+     font-size: 0.8em;
+     margin: 20px;
+   }
+
+   .finish {
+    font-size: 150%;
+  }
+}
+

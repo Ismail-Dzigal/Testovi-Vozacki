@@ -1,0 +1,76 @@
+#header-teory {
+  text-align: center;
+}
+
+.mat-fab-buttons {
+  margin: 20px;
+}
+
+.button-warn {
+  font-size: 3vw;
+  padding: 1vw;
+  margin: 0.5vw;
+}
+
+.question-container {
+  margin-bottom: 50px;
+}
+
+.title {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 1em;
+}
+
+.question-checkbox {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.sign-image {
+  width: 12.5em;
+  height: 12.5em;
+}
+
+.intersection-image {
+  width: 20em;
+  height: 15em;
+}
+
+@media screen and (min-width: 600px) and (max-width: 959px){
+  .intersection-image {
+    width: 17em;
+    height: 13em;
+    margin-top: 20px;
+  }
+
+  .sign-image {
+    margin-top: 20px;
+  }
+
+  .title {
+    font-size: 1em;
+  }
+
+  .question-container {
+    font-size: 0.9em;
+  }
+}
+
+@media screen and (max-width: 599px){
+   .title {
+     font-size: 1em;
+   }
+
+   .question-container {
+     font-size: 0.8em;
+     margin: 20px;
+   }
+}
+

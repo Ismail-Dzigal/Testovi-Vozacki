@@ -1,0 +1,12 @@
+<div class="contain" fxLayout="column" fxLayoutAlign="center center">
+  <section>
+    <h1>Dobro došli</h1>
+    <p>Ovo je aplikacija za vježbanje testova za polaganje vozačkog ispita u Bosni i Hercegovini. Teorijska pitanja su razvrstana po kategorijama. Vježbate samo pitanja one kategorije za koju polažete ispit. Pitanja iz oblasti znakova i raskrsnica su ista za sve kategorije.</p>
+    <p>Provjeriti koliko ste naučili tako što ćete raditi probne testove.</p>
+    <p id="greeting">Uživajte i sretno na ispitu!</p>
+  </section>
+  <section fxLayout>
+    <button mat-raised-button color="accent" (click)="buttonClick('learn')">Učenje</button>    
+    <button mat-raised-button color="warn" fxFlexOffset="10px" (click)="buttonClick('practice')">Probni test</button>   
+  </section>
+</div>

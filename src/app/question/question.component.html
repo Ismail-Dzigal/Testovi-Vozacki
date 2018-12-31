@@ -1,0 +1,14 @@
+<div fxFlex="50%">
+  <h3>{{indeks+1}}. {{question.question}}</h3>
+  <ul>
+    <li *ngFor="let odgovor of question.answers; let j = index">
+      <mat-checkbox class="question-checkbox" (click)="toggleAnswer(j)" [disabled]= "disableQuestion()"></mat-checkbox> {{odgovor.answer}}</li>
+  </ul>
+  <button mat-raised-button color="primary" (click)="questionConfirmed(question)" [disabled]= "disableQuestion()">{{questionDisable? "Potvrđeni odgovori":"Potvrdi odgovore"}}</button>
+</div>
+<div [ngStyle]="{'visibility':question.image ? 'visible' : 'hidden' }" fxHide.xs>
+  <img class="question-image" src="{{question.image}}">
+</div>
+<div [ngStyle]="{'display':question.image ? 'block' : 'none' }" fxHide.gt-xs>
+  <img class="question-image" src="{{question.image}}">
+</div>
