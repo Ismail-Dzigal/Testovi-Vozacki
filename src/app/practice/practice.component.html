@@ -4,14 +4,14 @@
           <h1 id="title">Probni test</h1>
 
           <p id="intro-text">Dobro došli. Evo osnovnih informacija vezanih za polaganje probnog testa. Svako tačno odgovoreno teorijsko pitanje donosi Vam 2 boda, svako pitanje iz oblasti znakova 3 boda, a svako pitanje iz oblasti raskrsnica 5 bodova. Polovično odgovorena pitanja ne donose bodove. Za uspješno položen ispit potrebno je da osvojite minimalno 90% od maksimalnog broja bodova, tj. minimalno 54 boda za A i B kategoriju, odnosno minimalno 63 boda za kategorije C i D. Sretno!</p>
-
-        <h2 id="header-teory">Izaberite kategoriju za koju polažete test:</h2>
-       
-        <div class="mat-fab-buttons" fxLayout fxLayoutAlign="center" fxLayoutGap="10px">
-          <button mat-fab color="warn"(click)="getPracticeTest('A')">A</button>
-          <button mat-fab color="warn"(click)="getPracticeTest('B')">B</button>
-          <button mat-fab color="warn"(click)="getPracticeTest('C')">C</button>
-          <button mat-fab color="warn"(click)="getPracticeTest('D')">D</button>
+        <div *ngIf="buttons">
+          <h2 id="header-teory">Izaberite kategoriju za koju polažete test:</h2>
+          <div class="mat-fab-buttons" fxLayout fxLayoutAlign="center" fxLayoutGap="10px">
+            <button mat-fab color="warn"(click)="getPracticeTest('A')">A</button>
+            <button mat-fab color="warn"(click)="getPracticeTest('B')">B</button>
+            <button mat-fab color="warn"(click)="getPracticeTest('C')">C</button>
+            <button mat-fab color="warn"(click)="getPracticeTest('D')">D</button>
+          </div>
         </div>
     
         <app-question class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of practiceTest; let i = index" [question]="pitanje" [indeks] = i (pointsEmitted)="addPoints($event)">
@@ -24,6 +24,8 @@
           <div [ngStyle]="{'color':allPoints/maxPoints > 0.9? 'green' : 'red' }">
             <h1 class="title">Broj osvojenih bodova: {{allPoints}}. To je {{(allPoints/maxPoints * 100).toFixed(2)}} %.</h1>
             <h1 class="title">{{allPoints/maxPoints > 0.9? "Čestitamo! Uspješno ste položili test" : "Žao nam je. Niste položili test. Pokušajte ponovo."}}</h1>
+            <img src="../assets/happy.jpg" alt="happy smile" *ngIf="allPoints/maxPoints >= 0.9">
+            <img src="../assets/sad.jpg" alt="sad smile" *ngIf="allPoints/maxPoints < 0.9">
           </div>
           <button mat-raised-button color="primary" class="finish" (click)="newTry()">Novi probni test?</button>
       </div>

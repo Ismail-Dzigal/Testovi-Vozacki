@@ -38,6 +38,13 @@
   margin-top: 40px;
 }
 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
 
 @media screen and (min-width: 600px) and (max-width: 959px){
   

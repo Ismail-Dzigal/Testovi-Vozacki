@@ -15,6 +15,7 @@ export class PracticeComponent implements OnInit {
   maxPoints: number = 0;
   finishButton: boolean = false;
   testVisibility: boolean = true;
+  buttons: boolean = true;
 
   constructor(private dataService:DataService, private router: Router) { }
 
@@ -26,6 +27,7 @@ export class PracticeComponent implements OnInit {
       this.maxPoints = 70;
     }
     this.finishButton = true;
+    this.buttons = false;
   }
 
   addPoints(points: number){

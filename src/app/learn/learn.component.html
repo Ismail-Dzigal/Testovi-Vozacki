@@ -10,9 +10,9 @@
       </div>
 
       <div *ngIf="teory">
-        <button mat-raised-button color="accent" (click)="erraseYourAnswers()">{{checkboxVisibility?"Obriši svoje odgovore":"Prikaži checkboxove"}}</button>
+        <button mat-raised-button color="accent" (click)="erraseYourAnswers()">Obriši svoje odgovore</button>
         <h1 class="title">Vježbanje pitanja - Teorija</h1>
-        <div class="question-container" fxLayout fxLayoutAlign= "center start" fxLayoutGap="20px" *ngFor="let pitanje of filteredTeory; let i = index">
+        <div class="question-container" fxLayout fxLayoutAlign= "center start" fxLayoutGap="20px" *ngFor="let pitanje of filteredTeory| slice:0: expand0; let i = index">
           <div fxFlex.gt-xs="70%" fxFlex.xs="100%">
             <h3>{{i+1}}. {{pitanje.question}}</h3>
             <ul>
@@ -24,6 +24,9 @@
             <button mat-raised-button color="primary" (click)="showAnswers(pitanje)">{{pitanje.correctAnswersVisibility?"Sakrij":"Prikaži"}} tačne odgovore</button>
           </div>
         </div>
+        <div fxLayout fxLayoutAlign="center">
+            <button mat-raised-button color="primary" [disabled]="disabledTeoryButton" (click)="showMore(0)">Prikaži još pitanja</button>
+        </div>
       </div>
     </ng-template>
   </mat-tab>
@@ -33,7 +36,7 @@
       <div *ngIf="signs">
         <button mat-raised-button color="accent" (click)="erraseYourAnswers()">{{checkboxVisibility?"Obriši svoje odgovore":"Prikaži checkboxove"}}</button>
         <h1 class="title">Vježbanje pitanja - Znakovi</h1>
-        <div class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of signs; let i = index">
+        <div class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of signs| slice:0: expand1; let i = index">
           <div fxFlex="50%">
             <h3>{{i+1}}. {{pitanje.question}}</h3>
             <ul>
@@ -48,6 +51,9 @@
             <img class="sign-image" src="{{pitanje.image}}">
           </div>
         </div>
+        <div fxLayout fxLayoutAlign="center">
+          <button mat-raised-button color="primary" [disabled]="disabledSignsButton" (click)="showMore(1)">Prikaži još pitanja</button>
+        </div>
       </div>
     </ng-template>
   </mat-tab>
@@ -56,7 +62,7 @@
       <div *ngIf="intersections">
         <button mat-raised-button color="accent" (click)="erraseYourAnswers()">{{checkboxVisibility?"Obriši svoje odgovore":"Prikaži checkboxove"}}</button>
         <h1 class="title">Vježbanje pitanja - Raskrsnice</h1>
-        <div class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of intersections; let i = index">
+        <div class="question-container" fxLayout.gt-xs fxLayout.xs="column-reverse" fxLayoutAlign.gt-xs="center start" fxLayoutAlign.xs="start center" fxLayoutGap="20px" *ngFor="let pitanje of intersections| slice:0: expand2; let i = index">
           <div fxFlex="50%">
             <h3>{{i+1}}. {{pitanje.question}}</h3>
             <ul>
@@ -70,6 +76,9 @@
           <div>
             <img class="intersection-image" src="{{pitanje.image}}">
           </div>
+        </div>
+        <div fxLayout fxLayoutAlign="center">
+          <button mat-raised-button color="primary" [disabled]="disabledIntersectionsButton" (click)="showMore(2)">Prikaži još pitanja</button>
         </div>
       </div>
     </ng-template>
